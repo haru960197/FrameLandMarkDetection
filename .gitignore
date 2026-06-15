@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+
+# 仮想環境
+.venv/
+venv/
+env/
+
+# 入出力ディレクトリ（メディアファイルは追跡しない。.gitkeepのみ許可）
+input/*
+!input/.gitkeep
+output/*
+!output/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ログ
+*.log

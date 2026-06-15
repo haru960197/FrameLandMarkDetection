@@ -1,0 +1,38 @@
+# ============================================================
+# FrameLandMarkDetection 設定ファイル
+# ============================================================
+
+# --- 入出力パス ---
+input_dir: "input"     # 入力動画ディレクトリ
+output_dir: "output"   # 出力動画ディレクトリ
+
+# --- 動画パラメータ ---
+video:
+  width: 640           # フレーム幅 [px]
+  height: 480          # フレーム高さ [px]
+  fps: 90              # フレームレート [fps]
+  # ※ 出力コーデックは mp4v (MP4) 固定
+  fourcc: "mp4v"
+
+# --- MediaPipe FaceMesh 設定 ---
+face_mesh:
+  static_image_mode: false       # false = 動画モード（前フレームの結果を追跡に利用）
+  max_num_faces: 1               # 検出する最大顔数
+  refine_landmarks: true         # 虹彩・唇の詳細ランドマークを使用
+  min_detection_confidence: 0.5  # 検出信頼度の閾値 [0.0-1.0]
+  min_tracking_confidence: 0.5   # トラッキング信頼度の閾値 [0.0-1.0]
+
+# --- 描画設定 ---
+drawing:
+  landmark_color: [0, 255, 0]        # ランドマーク点の色 [B, G, R]
+  connection_color: [0, 200, 100]    # コネクション線の色 [B, G, R]
+  landmark_radius: 1                 # ランドマーク点の半径 [px]
+  landmark_thickness: -1             # 塗りつぶし (-1) またはボーダー幅
+  connection_thickness: 1            # コネクション線の太さ [px]
+  draw_connections: true             # コネクション線を描画するか
+  overlay_alpha: 0.8                 # オーバーレイ透明度 [0.0-1.0]
+
+# --- ログ設定 ---
+logging:
+  level: "INFO"    # DEBUG / INFO / WARNING / ERROR
+  save_csv: true   # ランドマーク座標をCSVで保存するか
