@@ -14,12 +14,12 @@ video:
   # ※ 出力コーデックは mp4v (MP4) 固定
   fourcc: "mp4v"
 
-# --- MediaPipe FaceMesh 設定 ---
+# --- MediaPipe FaceLandmarker 設定 (Tasks API) ---
 face_mesh:
-  static_image_mode: false       # false = 動画モード（前フレームの結果を追跡に利用）
+  model_path: "face_landmarker.task"  # モデルファイルのパス
   max_num_faces: 1               # 検出する最大顔数
-  refine_landmarks: true         # 虹彩・唇の詳細ランドマークを使用
   min_detection_confidence: 0.5  # 検出信頼度の閾値 [0.0-1.0]
+  min_presence_confidence: 0.5   # 顔存在信頼度の閾値 [0.0-1.0]
   min_tracking_confidence: 0.5   # トラッキング信頼度の閾値 [0.0-1.0]
 
 # --- 描画設定 ---

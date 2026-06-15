@@ -26,10 +26,10 @@ class VideoConfig:
 
 @dataclass
 class FaceMeshConfig:
-    static_image_mode: bool = False
+    model_path: str = "face_landmarker.task"
     max_num_faces: int = 1
-    refine_landmarks: bool = True
     min_detection_confidence: float = 0.5
+    min_presence_confidence: float = 0.5
     min_tracking_confidence: float = 0.5
 
 
@@ -104,10 +104,10 @@ def load_config(config_path: str = "config.yaml") -> AppConfig:
     # --- face_mesh ---
     fm = raw.get("face_mesh", {})
     face_mesh = FaceMeshConfig(
-        static_image_mode=bool(fm.get("static_image_mode", False)),
+        model_path=str(fm.get("model_path", "face_landmarker.task")),
         max_num_faces=int(fm.get("max_num_faces", 1)),
-        refine_landmarks=bool(fm.get("refine_landmarks", True)),
         min_detection_confidence=float(fm.get("min_detection_confidence", 0.5)),
+        min_presence_confidence=float(fm.get("min_presence_confidence", 0.5)),
         min_tracking_confidence=float(fm.get("min_tracking_confidence", 0.5)),
     )
 
