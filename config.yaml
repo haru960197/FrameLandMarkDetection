@@ -8,9 +8,9 @@ output_dir: "output"   # 出力動画ディレクトリ
 
 # --- 動画パラメータ ---
 video:
-  width: 640           # フレーム幅 [px]
-  height: 480          # フレーム高さ [px]
-  fps: 90              # フレームレート [fps]
+  width: 320           # フレーム幅 [px]
+  height: 320          # フレーム高さ [px]
+  fps: 60              # フレームレート [fps]
   # ※ 出力コーデックは mp4v (MP4) 固定
   fourcc: "mp4v"
 
